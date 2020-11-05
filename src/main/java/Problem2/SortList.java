@@ -18,20 +18,25 @@ public class SortList {
 
     public static ListNode findMidAndBreak(ListNode head) {
         if (head == null) {
-            return null;
+            return head;
         }
 
-        int counter = 0;
         ListNode p1 = head;
+        ListNode p2 = head.next;
 
-        while (p1.next != null) {
-            counter++;
-            p1 = p1.next;
-        }
+        while (p2 != null) {
+            p2 = p2.next;
 
-        int mid = (counter+1)/2;
-        p1 = head;
-        for(int i = 0; i < mid-1; i++) {
+            if (p2 == null) {
+                break;
+            }
+
+            p2 = p2.next;
+
+            if (p2 == null) {
+                break;
+            }
+
             p1 = p1.next;
         }
 
